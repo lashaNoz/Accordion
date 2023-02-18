@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  height: 100vh;
+  background: linear-gradient(rgba(53, 53, 53, 0.9), rgba(53, 53, 53, 0.9)),
+    url(images/bg.jpg) center no-repeat;
+  background-size: cover;
+}
+
+.accordions {
+  padding: 0 2rem;
+}
+
+.heading {
+  font-size: 8rem;
+  color: #fff;
+  padding: 3rem 2rem;
+  margin-bottom: 5rem;
+}
+
+.accordion {
+  border-bottom: 0.1rem solid #fff;
+  border-right: 0.1rem solid #fff;
+  border-bottom-right-radius: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  isolation: isolate;
+}
+
+.accordion::before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  bottom: -100%;
+  height: 100%;
+  width: 100%;
+  transition: bottom 0.2s, background-color 0.2s 0.2s;
+  z-index: -1;
+}
+
+.accordion:hover::before {
+  bottom: 0;
+}
+
+.accordion.active::before {
+  background-color: #e675757e;
+  bottom: 0;
+}
+
+.accordion-heading {
+  color: #fff;
+  font-weight: lighter;
+  text-transform: uppercase;
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.accordion-heading span:nth-child(1) {
+  font-size: 3rem;
+  margin-right: 15rem;
+  transition: transform 0.2s;
+}
+
+.accordion-heading:hover span:nth-child(1) {
+  transform: translateX(2rem);
+}
+
+.active .accordion-heading span:nth-child(1) {
+  transform: translateX(2rem);
+}
+
+.accordion-heading span:nth-child(2) {
+  font-size: 2rem;
+}
+
+.accordion-heading span:nth-child(3) {
+  font-size: 1.8rem;
+  margin-left: auto;
+}
+
+.accordion-content {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.2s;
+}
+
+.active .accordion-content {
+  height: 20rem;
+}
+
+.accordion-content p {
+  color: #fff;
+  font-size: 4.5rem;
+  margin: 2rem 4rem;
+}
